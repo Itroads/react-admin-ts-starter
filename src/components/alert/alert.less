@@ -1,0 +1,70 @@
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+  font-size: 13px;
+  div {
+    display: flex;
+    align-items: center;
+    img {
+      margin: 0 10px;
+      height: 16px;
+    }
+  }
+  span {
+    padding: 10px 10px;
+    cursor: pointer;
+  }
+}
+.content {
+  height: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px 20px 10px;
+  font-size: 13px;
+  .msg {
+    position: relative; line-height: 20px; max-height: 100px;overflow: hidden;
+  }
+}
+.errorHead {
+  background-color: #bb0000;
+}
+.confirmContent {
+  height: 95px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  font-size: 13px;
+  .msg {
+    position: relative; line-height: 20px; max-height: 100px;overflow: hidden;
+  }
+}
+.footer {
+  display: flex;
+  height: 40px;
+  font-size: 12px;
+  justify-content: flex-end;
+  align-items: center;
+  div {
+    user-select: none;
+    margin-right: 10px;
+    border: 1px solid #3d5d82;
+    padding: 4px 8px;
+    border-radius: 3px;
+  }
+}
+.toast {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+  background-color: rgba(0, 0, 0, 0.1);
+}

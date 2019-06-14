@@ -1,0 +1,123 @@
+.header {
+  height: 50px;
+  display: flex;
+  
+  .logo {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    .ikbms {
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+      img {
+        height: 40px;
+        margin: 0 10px;
+      }
+      span {
+        font-size: 24px;
+        font-weight: 500;
+        -webkit-font-smoothing: antialiased;
+      }
+    }
+    .tabHouse {
+      display: flex;
+      .tabs {
+        width: 100px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+      }
+  
+      .tabActive {
+        border-bottom: 1px solid blue;
+      }
+    }
+    
+    
+  }
+  
+  .operation {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .loginBtn {
+      font-size: 13px;
+      padding: 0 15px 0 5px;
+    }
+
+    .iconOpera {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-right: 20px;
+
+      // 功能设置按钮
+      .set {
+        position: relative;
+        padding: 15px 5px 15px 5px;
+        font-size: 13px;
+      }
+      .set:hover .settingBtn {
+        display: block;
+      }     
+      .settingBtn {
+        position: absolute;
+        min-width: 98px;
+        background: rgba(16, 16, 16, 0.5);
+        top: 45px;
+        right: -9px;
+        z-index: 9099;
+        text-align: left;
+        border: 1px solid #312d2d;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #292828;
+        display: none;
+        color: rgb(184, 199, 206);
+        font-size: 12px;
+        padding: 5px 0;
+        list-style: none;
+        li {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 4px 0;
+          cursor: pointer;
+          .font {
+            margin-left: 4px;
+            width: 60px;
+            text-align: center;
+            line-height: 16px;
+          }
+          .icon {
+            height: 16px;
+            width: 16px;
+            border-radius: 4px;
+          }
+          .skinActive {
+            text-decoration: underline;
+          }
+          
+        }
+        li:hover {
+          background: rgba(0, 0, 0, 0.8)
+        }
+        
+      }
+      .settingBtn:before {
+        content: "";
+        position: absolute;
+        left: 72px;
+        top: -9px;
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-bottom: 8px solid #292828;
+        border-right: 5px solid transparent;
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+.toast {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+  background-color: rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  position: relative;
+
+  .head {
+    flex: 0 0 46px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 46px;
+    font-size: 13px;
+
+    div {
+      display: flex;
+      align-items: center;
+
+      img {
+        height: 20px;
+        margin: 0 10px;
+      }
+    }
+
+    i {
+      padding: 10px 10px;
+      cursor: pointer;
+    }
+
+    .times {
+      width: 28px;
+    }
+  }
+
+  .body {
+    flex: 1;
+    height: calc(100% - 46px);
+  }
+}

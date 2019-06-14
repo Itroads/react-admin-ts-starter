@@ -1,0 +1,169 @@
+.treeContainer :global{
+  overflow: auto;
+  padding: 0;
+  border: 1px solid rgba(0,0,0,0.2);
+  .rc-tree {
+    margin: 0;
+    padding: 5px;
+  }
+  .rc-tree li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    white-space: nowrap;
+    outline: 0;
+  }
+  .rc-tree li .draggable {
+    color: #333;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+        user-select: none;
+    /* Required to make elements draggable in old WebKit */
+    -khtml-user-drag: element;
+    -webkit-user-drag: element;
+  }
+  .rc-tree li.drag-over > .draggable {
+    background-color: #316ac5;
+    color: white;
+    border: 1px #316ac5 solid;
+    opacity: 0.8;
+  }
+  .rc-tree li.drag-over-gap-top > .draggable {
+    border-top: 2px blue solid;
+  }
+  .rc-tree li.drag-over-gap-bottom > .draggable {
+    border-bottom: 2px blue solid;
+  }
+  .rc-tree li.filter-node > .rc-tree-node-content-wrapper {
+    color: #a60000!important;
+    font-weight: bold!important;
+  }
+  .rc-tree li ul {
+    margin: 0;
+    padding: 0 0 0 24px;
+  }
+  .rc-tree li .rc-tree-node-content-wrapper {
+    display: inline-block;
+    margin: 0;
+    cursor: pointer;
+    height: 24px;
+    line-height: 32px;
+    text-decoration: none;
+    vertical-align: top;
+  }
+
+  .rc-tree li span.rc-tree-switcher,
+  .rc-tree li span.rc-tree-checkbox,
+  .rc-tree li span.rc-tree-iconEle {
+    line-height: 24px;
+    margin-right: 2px;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    border: 0 none;
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-image: url('../../assets/tree.png');
+  }
+  .rc-tree li span.rc-tree-switcher.rc-tree-icon__customize,
+  .rc-tree li span.rc-tree-checkbox.rc-tree-icon__customize,
+  .rc-tree li span.rc-tree-iconEle.rc-tree-icon__customize {
+    background-image: none
+  }
+  .rc-tree li span.rc-tree-icon_loading {
+    margin-right: 2px;
+    background: url('data:image/gif;base64,R0lGODlhEAAQAKIGAMLY8YSx5HOm4Mjc88/g9Ofw+v///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQFCgAGACwAAAAAEAAQAAADMGi6RbUwGjKIXCAA016PgRBElAVlG/RdLOO0X9nK61W39qvqiwz5Ls/rRqrggsdkAgAh+QQFCgAGACwCAAAABwAFAAADD2hqELAmiFBIYY4MAutdCQAh+QQFCgAGACwGAAAABwAFAAADD1hU1kaDOKMYCGAGEeYFCQAh+QQFCgAGACwKAAIABQAHAAADEFhUZjSkKdZqBQG0IELDQAIAIfkEBQoABgAsCgAGAAUABwAAAxBoVlRKgyjmlAIBqCDCzUoCACH5BAUKAAYALAYACgAHAAUAAAMPaGpFtYYMAgJgLogA610JACH5BAUKAAYALAIACgAHAAUAAAMPCAHWFiI4o1ghZZJB5i0JACH5BAUKAAYALAAABgAFAAcAAAMQCAFmIaEp1motpDQySMNFAgA7') no-repeat scroll 0 0 transparent;
+    background-position: 0px 2px;
+  }
+  .rc-tree li span.rc-tree-switcher.rc-tree-switcher-noop {
+    cursor: auto;
+  }
+  .rc-tree li span.rc-tree-switcher.rc-tree-switcher_open {
+    background-position: -132px -4px;
+  }
+  .rc-tree li span.rc-tree-switcher.rc-tree-switcher_close {
+    background-position: -100px -4px;
+  }
+  .rc-tree li span.rc-tree-checkbox {
+    background-position: -164px -4px;
+  }
+  .rc-tree li span.rc-tree-checkbox-checked {
+    background-position: -228px -4px;
+  }
+  .rc-tree li span.rc-tree-checkbox-indeterminate {
+    background-position: -196px -4px;
+  }
+  // 禁用状态样式，一般用不到
+  // .rc-tree li span.rc-tree-checkbox-disabled {
+  //   background-position: 0 -56px;
+  // }
+  // .rc-tree li span.rc-tree-checkbox.rc-tree-checkbox-checked.rc-tree-checkbox-disabled {
+  //   background-position: -14px -56px;
+  // }
+  // .rc-tree li span.rc-tree-checkbox.rc-tree-checkbox-indeterminate.rc-tree-checkbox-disabled {
+  //   position: relative;
+  //   background: #ccc;
+  //   border-radius: 3px;
+  // }
+  // .rc-tree li span.rc-tree-checkbox.rc-tree-checkbox-indeterminate.rc-tree-checkbox-disabled::after {
+  //   content: ' ';
+  //   -webkit-transform: scale(1);
+  //   transform: scale(1);
+  //   position: absolute;
+  //   left: 3px;
+  //   top: 5px;
+  //   width: 5px;
+  //   height: 0;
+  //   border: 2px solid #fff;
+  //   border-top: 0;
+  //   border-left: 0;
+  // }
+  .rc-tree:not(.rc-tree-show-line) .rc-tree-switcher-noop {
+    background: none;
+  }
+  .rc-tree.rc-tree-show-line li:not(:last-child) > ul {
+    background: url('../../assets/tree.png') 0 0 repeat-y;
+    background-position: -292px -4px;
+  }
+  .rc-tree.rc-tree-show-line li:not(:last-child) > .rc-tree-switcher-noop {
+    background-position: -68px 0px;
+  }
+  .rc-tree.rc-tree-show-line li:last-child > .rc-tree-switcher-noop {
+    background-position: -68px -4px;
+  }
+  .rc-tree-child-tree {
+    display: none;
+  }
+  .rc-tree-child-tree-open {
+    display: block;
+  }
+  .rc-tree-treenode-disabled > span:not(.rc-tree-switcher),
+  .rc-tree-treenode-disabled > a,
+  .rc-tree-treenode-disabled > a span {
+    // color: #767676;
+    cursor: not-allowed;
+  }
+  .rc-tree-node-selected {
+    opacity: 0.8;
+  }
+  .rc-tree-icon__open {
+    background-position: -258px -10px;
+  }
+  .rc-tree-icon__close {
+    background-position: -258px -10px;
+  }
+  .rc-tree-icon__docu {
+    background-position: -100px -75px;
+  }
+  .rc-tree-icon__customize {
+    margin-right: 2px;
+    vertical-align: top;
+  }
+}
+

@@ -1,0 +1,56 @@
+.table {
+  height: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  table-layout: fixed;
+
+  thead {
+    display: table;
+    table-layout: fixed;
+
+    tr {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+
+      th {
+        text-align: left;
+        vertical-align: bottom;
+        font-size: 13px;
+        padding: 8px;
+        line-height: 1.42857143;
+        box-sizing: border-box;
+
+        i {
+          float: right;
+          height: 12px;
+          position: relative;
+          top: 2px;
+        }
+      }
+    }
+  }
+
+  tbody {
+    display: block;
+    height: calc(100% - 36px);
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    tr {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+
+      td {
+        font-size: 12px;
+        padding: 8px;
+        line-height: 1.42857143;
+        vertical-align: middle;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+}
