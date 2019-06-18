@@ -1,15 +1,15 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import intl from 'react-intl-universal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faTshirt } from '@fortawesome/free-solid-svg-icons'
 
-import { setLanguage } from '../../reducers/langsReducer'
 import { setSkinStyle, skin } from '../../utils/skin'
 import createModal from '../../components/modal/index'
 import ChangePwd from './change-pwd/index'
-import { changePassword, changeLanguage } from '../../http/api/index'
+import { changePassword, 
+  changeLanguage 
+} from '../../http/api/index'
 import { createWarning } from '../../components/alert/index'
 import EmpMap from './emp-map/index'
 
@@ -99,6 +99,9 @@ class Header extends React.Component<any, any> {
         langCode = '1028';
         break 
     }
+
+    window.location.reload()
+
     changeLanguage({
       lang_id: langCode
     }).then((res: any) => {
@@ -137,8 +140,8 @@ class Header extends React.Component<any, any> {
 
               <select value={this.state.lang} onChange={this.handleChangeLangs}>
                 <option value="zh-CN">简体中文</option>
-                {/* <option value="en-US">English</option>
-                <option value="zh-HK">繁体中文</option> */}
+                <option value="en-US">English</option>
+                <option value="zh-HK">繁体中文</option>
               </select>
             </span>
 
@@ -175,12 +178,4 @@ class Header extends React.Component<any, any> {
   }
 }
 
-const mapStateToProps = (state: any) => ({
-  langs: state.langsState.langs
-})
-
-const mapDispatchToProps = (dispatch: any) => ({
-  setLanguage: (langs: string) => dispatch(setLanguage(langs))
-})
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header) as any)
+export default withRouter(Header)

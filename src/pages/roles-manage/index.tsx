@@ -1,12 +1,14 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-
+import intl from 'react-intl-universal'
 import $ from 'jquery'
 
 // @ts-ignore
 window.jQuery = $
 
 require('ztree')
+
+import 'ztree/css/zTreeStyle/zTreeStyle.css'
 
 import Layout from '../../components/layout/index'
 import { addDialogData, deleteDialogData } from '../../reducers/modalReducer'
@@ -50,8 +52,13 @@ class RolesManage extends React.Component<any, any> {
     return (
       <Layout isShow={this.props.isShow}>
         <div>
-          角色管理页面
-          <ul id='tree' className="ztree" />
+          <div>角色管理页面</div>
+          <div>语言包测试：{intl.get('GPGN9020201').d('登录选项')}</div>
+          <div>
+            <span> zTree: </span>
+            <ul id='tree' className="ztree" />
+          </div>
+          
         </div>
       </Layout>
     )

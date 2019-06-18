@@ -8,12 +8,9 @@ import 'moment/locale/zh-cn'
 import 'moment/locale/zh-hk'
 import 'moment/locale/en-nz'
 
-
-
 import PrivateRoute from './pages/private_router/index'
 import RouteData from './routerMap'
 import './App.less'
-
 
 import rootReducer from './reducers/index'
 
@@ -72,8 +69,8 @@ class App extends React.Component<any, any> {
       currentLocale: lang, // TODO: determine locale here
       locales,
       commonLocaleDataUrls: {
-        en: "/en.js", // the file
-        zh: "/zh.js" // the file
+        en: '/en.js', // the file
+        zh: '/zh.js' // the file
       }
     })
     .then(() => {
