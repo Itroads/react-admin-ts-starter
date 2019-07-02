@@ -29,6 +29,137 @@ React + Typescript 开发的后端多页脚手架
 * 可支持，左中右结构，就像 win 上的很多应用那样，当然这是可选项
 
 # 内置组件说明
-待续...
+## Modal  
+### Params 参数说明
 
-说明文档很快更新上来
+| 参数名称 | 类型 | 说明 | 是否必须 |
+|:----|:-----:|:-----:| :-------:|
+| `Component` | `Component` | 弹窗显示的组件内容 | 必须 |
+| `options` | `Object` | width?:string, height?:string, imgSrc:any, title:string |必须 |
+| `ParentFn` | `Function` | 父组件传入的方法，如：点击确定，所触发的方法 | 必须 |
+| `dataToChildren` | `Any` | 父组件传递给子组件的值 | 必须 |
+| `localDialog` | `Object` | ref:React.RefObject<HTMLDivElement>, tabId:string, addFn:Fn, delFn:Fn。不传则为全局弹窗 | 可选 |
+
+
+``` javascript
+import React, { Component } from 'react'
+import createModal from '../../components/modal'
+import CreatNewRole from './creatNewRole'
+
+class Demo extends Component {
+	constructor(props: any) {
+	    super(props)
+	    this.container = React.createRef();
+	}
+	
+    public container: React.RefObject<HTMLDivElement>;
+   
+	showNewModal () {
+	    createModal(CreatNewRole,{
+          width: '650px',
+          height: '360px',
+          imgSrc: require('../../assets/logo.png'),
+          title: '添加角色'
+        },this.creatRole, '',{
+	      ref: this.container, 
+	      tabId: this.props.activeTabId, // 来自 store
+	      addFn: this.props.addDialogData, // 来自 store
+	      delFn: this.props.deleteDialogData // 来自 store
+    	 })
+  	}
+  	
+  	render() {
+	  	return (
+	  		<div ref={this.container}>
+	  		...
+	  		</div>
+	  	)
+  }
+}
+```  
+
+**注意**：包裹弹出组件的父节点，要设置 `position: relative;` ，因为遮罩层采用绝对定位。所以，遮罩范围，取决于设置了相对位置的父节点。  
+**弹窗内部的组件，可通过调用 `this.props.close()` 来关闭弹窗**
+
+
+## Alert
+
+### Params
+
+一共包含四个子组件：
+`createConfirm` `createInfo` `createWarning` `createError`  
+和一个供外部调用的关闭方法 `clearAlert`，直接调用即可 `clearAlert()`
+
+| 属性名称 | 类型 | 说明 | 是否必须 | 范围 |
+|:----|:-----:|:-----:| :-------:|:---:|
+| `msg` | `String` | 弹窗的文字描述信息 | 必须 | 通用 |
+| `cb` | `Function` | `Confirm` 弹窗，点击确定的回调方法 | 必须 | `Confirm` |
+
+``` javascript
+import React, { Component } from 'react'
+import { createConfirm, createInfo, createWarning, createError, clearAllAlert } from '@components/alert/alert'
+
+class Demo extends Component {
+
+	/**
+   * confirm 点击确认按钮的回调
+   * @param {any} params 
+   */
+  confirmCallBack (params) {
+    console.log('test', params)
+    clearAllAlert()
+  }
+
+  showNewConfirm () {
+    createConfirm('确定要删除xxx ？', this.confirmCallBack.bind(this, 123))
+  }
+
+  showNewInfo () {
+    createInfo('确定要删除xxx ？')
+  }
+
+  showNewWarning () {
+    createWarning('警告信息')
+  }
+
+  showNewError () {
+    createError('错误信息')
+  }
+  
+  render() {
+  	return (
+  		...
+  	)
+  }
+
+}
+```  
+
+## Toast
+
+### Params
+
+| 属性名称 | 类型 | 说明 | 是否必须 |
+|:----|:-----:|:-----:| :-------:|
+| `text` | `String` | 弹窗的文字描述信息 | 必须 |
+| `time` | `Number` | `Toast` 弹窗，指定时间后消失，默认1500毫秒 | 可选 |
+
+### Demo
+
+``` javascript
+import React, { Component } from 'react'
+import Modal from '@components/modal/modal'
+
+class Demo extends Component {
+	showToast () {
+    createToast('账号或密码错误账号或密码错误', 2000)
+  	}
+  	
+  	render() {
+	  	return (
+	  		...
+	  	)
+  }
+}
+
+```  
