@@ -5,10 +5,10 @@ import styles from './menu.less'
 
 export interface IMenuProps {
   data?: any;
-  operateCallBack?: any; // 右侧操作菜单回调函数
-  openOrToggleTabBox?: any; // 左侧菜单导航，处理 tabBox 方法，来自redux
-  activeTabId?: string;
-  tabModalCount?: number; // 当前 tab 页的弹窗数量
+  activeTabId?: string; // 来自 store 
+  openOrToggleTabBox?: any; // 左侧菜单导航，处理 tabBox 方法，来自 store
+  operateCallBack?: any; // 右侧操作菜单回调函数 - 右侧菜单需要
+  tabModalCount?: number; // 当前 tab 页的弹窗数量 - 右侧菜单需要
 }
 
 export interface IMenuState {

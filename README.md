@@ -7,10 +7,10 @@ React + Typescript 开发的后端多页脚手架
 1. 为了公司多个产品模块能够统一，这样维护起来比较轻松  
 2. 公司产品的上一个版本用 layui 开发，有 Tab 多页（所以...）  
 3. 为了和市面上大众UI区分开（虽然可以用 Antd，然后覆盖样式，个人不喜欢），内置了需要的组件和部分特色功能  
-4. 内置皮肤（与内置组件结合），继承原来产品的意志
+4. 内置皮肤（与内置组件结合），继承原来产品的意志  
 5. 顺便整理一下，拿出来骗星 :stuck_out_tongue_closed_eyes:  
 
-由于代码比较简单，也使用了 TypeScript，新手拿来参考，也是不错的。
+由于代码比较简单，注释全面，同时使用了 TypeScript，新手拿来上手和参考，也是不错的。
 
 # 如何使用？
 
@@ -152,14 +152,133 @@ import Modal from '@components/modal/modal'
 
 class Demo extends Component {
 	showToast () {
-    createToast('账号或密码错误账号或密码错误', 2000)
+      createToast('账号或密码错误账号或密码错误', 2000)
   	}
   	
   	render() {
 	  	return (
 	  		...
 	  	)
-  }
+   }
 }
 
 ```  
+
+## Menu
+
+### Params
+
+| 属性名称 | 类型 | 说明 | 是否必须 |
+|:----|:-----:|:-----:| :-------:|
+| `data` | `Array` | 菜单数据 | 必须 |
+| `activeTabId` | `String` | 当前页面的ID，来自 Store | 可选 |
+| `openOrToggleTabBox` | `Function` | 左侧菜单导航，处理 tabBox 方法，来自 store | 可选 |
+| `operateCallBack` | `Function ` | 右侧操作菜单回调函数 | 可选 |
+| `tabModalCount` | `Number` | 当前 tab 页的弹窗数量 | 可选 |
+
+### Demo
+
+#### 左侧菜单
+
+``` javascript
+import * as React from 'react'
+import { connect } from 'react-redux'
+import { addTabBox, setDefaultTab } from '../../reducers/tabBoxReducer'
+
+class Demo extends Component {
+	
+  	render() {
+	  	return (
+	  		<Menu 
+	  		data={this.state.data} 
+	  		activeTabId={this.props.activeTabId} 			openOrToggleTabBox={this.props.addTabBox}
+	  		/>	  	
+	  	)
+   }
+}
+
+const mapStateToProps = (state: any) => ({
+  activeTabId: state.tabBoxState.activeTabId
+})
+
+const mapDispatchToProps = (dispatch: any) => ({
+  addTabBox: (tabItem: ITabItem) => dispatch(addTabBox(tabItem)),
+  setDefaultTab: (tabItem: ITabItem) => dispatch(setDefaultTab(tabItem))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Demo)
+
+
+```  
+
+#### 右侧菜单
+
+``` javascript
+import * as React from 'react'
+import { connect } from 'react-redux'
+import { addDialogData, deleteDialogData } from '../../../../reducers/modalReducer'
+
+class Demo extends Component {
+	
+  	render() {
+	  	return (
+	  		<Menu 
+	  		data={this.state.rightMenuData} 
+	  		operateCallBack={(value: string) => this.menuOperate(value)} 			tabModalCount={this.props.modalState ? 				this.props.modalState[this.props.activeTabId] : null} 
+	  		/>	
+	  	)
+   }
+}
+
+const mapStateToProps = (state: any) => ({
+  activeTabId: state.adminTabBoxState.activeTabId,
+  modalState: state.modalState
+})
+
+const mapDispatchToProps = (dispatch: any) => ({
+  addDialogData: (key: string) => dispatch(addDialogData(key)),
+  deleteDialogData: (key: string) => dispatch(deleteDialogData(key))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Demo)
+
+
+```  
+
+# 你可能存在的疑惑？
+
+## 皮肤太丑？:unamused:  
+打开 `/src/utils`  
+
+```  
+-utils
+	-skin-files
+		-darkBlack.ts // 输出皮肤样式的对象
+		-darkBlue.ts
+		...
+	-skin.ts // 输出全局的，皮肤样式
+
+```
+
+发挥你的设计灵感吧！:smiling_imp:  
+
+## 哪里控制 Tab 页面？
+
+打开 `/src/pages/home/pageBox.tsx` 我想，里面的注释，应该足够解释了
+
+## 如何实现的多Tab页？
+核心就是 redux 状态管理，尽在 `/src/reducers`，里面的注释可以帮你解惑
+
+
+# 感谢
+技术的道路总是崎岖，前行的路上获得了很多帮助，虽然我很渺小，但接受的帮助也会铭记。  
+`爝神` `方少` `众'狼友'` 以及众多，在我问出小白的问题时，一样认真帮助解答的人。  
+
+**特别报道：** 爝神的 Node 框架 [Daruk](https://github.com/darukjs/daruk) 震撼登场！
+
+# 最后
+每个成长起来的人，都是曾经的小白，虽然我也不是 `真·大佬` ，但我也希望，新人在求知的路上能够不被嘲笑，能够得到真诚的帮助。
+
+可以加我的 WX ，一起学习探讨。  
+
+![wx](https://github.com/Itroads/assets/blob/master/react-admin-scaffold/README/wechatqr.png)

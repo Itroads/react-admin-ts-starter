@@ -13,7 +13,10 @@ const PasswordPolicy = Loadable({loader: () => import('../security-policy/passwo
 class PageBox extends React.Component<any, any> {
     
     public render() {
-      const tabIdArray = this.props.tabData.map((curVal: ITabItem) => curVal.id)
+        
+        // 点击左侧菜单，把页面 id 添加到 store 指定数组中
+        // 然后，像下面那样穷举一下。通过 indexOf 判断，来处理页面是否显示
+        const tabIdArray = this.props.tabData.map((curVal: ITabItem) => curVal.id)
         return (
             <React.Fragment>
                 { tabIdArray.indexOf('1021110110100000000') !== -1 ? <RolesManage isShow={ this.props.activeTabId === '1021110110100000000' } /> : null }
