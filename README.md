@@ -281,4 +281,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(Demo)
 
 可以加我的 WX ，一起学习探讨。  
 
-![itroad](https://github.com/Itroads/assets/blob/master/react-admin-scaffold/README/wechatqr.png "itroad"){:width="200"}
+
+<p align="center">
+	<img src="https://github.com/Itroads/assets/blob/master/react-admin-scaffold/README/wechatqr.png"  width="200">
+	<p align="center">
+		<em>Itroad</em>
+	</p>
+</p>
