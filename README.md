@@ -281,4 +281,4 @@ export default connect(mapStateToProps, mapDispatchToProps)(Demo)
 
 可以加我的 WX ，一起学习探讨。  
 
-![wx](https://github.com/Itroads/assets/blob/master/react-admin-scaffold/README/wechatqr.png)
+![wx](https://github.com/Itroads/assets/blob/master/react-admin-scaffold/README/Wechat.jpeg)
