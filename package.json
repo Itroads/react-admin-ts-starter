@@ -29,7 +29,6 @@
     "identity-obj-proxy": "^3.0.0",
     "intl": "1.2.5",
     "jest": "20.0.4",
-    "jquery": "^3.4.1",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
     "moment": "^2.24.0",
@@ -66,8 +65,7 @@
     "webpack": "3.8.1",
     "webpack-dev-server": "2.11.3",
     "webpack-manifest-plugin": "1.3.2",
-    "whatwg-fetch": "2.0.3",
-    "ztree": "^3.5.24"
+    "whatwg-fetch": "2.0.3"
   },
   "scripts": {
     "start": "node scripts/start.js",
@@ -78,7 +76,6 @@
     "@types/enzyme": "^3.1.15",
     "@types/history": "^4.7.2",
     "@types/jest": "^24.0.14",
-    "@types/jquery": "^3.3.29",
     "@types/node": "^12.0.8",
     "@types/qs": "^6.5.1",
     "@types/rc-tree": "^1.11.3",

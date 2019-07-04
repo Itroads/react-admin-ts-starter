@@ -12,6 +12,8 @@ React + Typescript 开发的后端多页脚手架
 
 由于代码比较简单，注释全面，同时使用了 TypeScript，新手拿来上手和参考，也是不错的。
 
+如果发现不妥之处，麻烦道友 `issues` 指出。
+
 # 如何使用？
 
 `git clone https://github.com/Itroads/react-admin-ts-starter.git`
@@ -277,7 +279,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Demo)
 **特别报道：** 爝神的 Node 框架 [Daruk](https://github.com/darukjs/daruk) 震撼登场！
 
 # 最后
-每个成长起来的人，都是曾经的小白，虽然我也不是 `真·大佬` ，但我也希望，新人在求知的路上能够不被嘲笑，能够得到真诚的帮助。
+每个成长起来的人，都是曾经的小白，虽然我不是 `真·大佬` ，但也希望，新人在求知的路上能够不被嘲笑，能够得到真诚的帮助。
 
 可以加我的 WX ，一起学习探讨。  
 
