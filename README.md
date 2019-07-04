@@ -6,13 +6,10 @@ React + Typescript 开发的后端多页脚手架
 关于这个脚手架项目：  
 1. 为了公司多个产品模块能够统一，这样维护起来比较轻松  
 2. 公司产品的上一个版本用 layui 开发，有 Tab 多页（所以...）  
-3. 为了和市面上大众UI区分开（虽然可以用 Antd，然后覆盖样式，个人不喜欢），内置了需要的组件和部分特色功能  
+3. 为了和市面上大众UI区分开（虽然可以用 Antd，然后覆盖样式，个人不推荐），内置了需要的组件和部分特色功能  
 4. 内置皮肤（与内置组件结合），继承原来产品的意志  
-5. 顺便整理一下，拿出来骗星 :stuck_out_tongue_closed_eyes:  
 
-由于代码比较简单，注释全面，同时使用了 TypeScript，新手拿来上手和参考，也是不错的。
-
-如果发现不妥之处，麻烦道友 `issues` 指出。
+如果发现不妥之处，麻烦 `issues` 指出。
 
 # 如何使用？
 
@@ -249,7 +246,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Demo)
 
 # 你可能存在的疑惑？
 
-## 皮肤太丑？:unamused:  
+## 皮肤设置？
 打开 `/src/utils`  
 
 ```  
@@ -272,21 +269,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Demo)
 核心就是 redux 状态管理，尽在 `/src/reducers`，里面的注释可以帮你解惑
 
 
-# 感谢
-技术的道路总是崎岖，前行的路上获得了很多帮助，虽然我很渺小，但接受的帮助也会铭记。  
-`爝神` `方少` `众'狼友'` 以及众多，在我问出小白的问题时，一样认真帮助解答的人。  
 
 **特别报道：** 爝神的 Node 框架 [Daruk](https://github.com/darukjs/daruk) 震撼登场！
 
-# 最后
-每个成长起来的人，都是曾经的小白，虽然我不是 `真·大佬` ，但也希望，新人在求知的路上能够不被嘲笑，能够得到真诚的帮助。
 
-可以加我的 WX ，一起学习探讨。  
-
-
-<p align="center">
-	<img src="https://github.com/Itroads/assets/blob/master/react-admin-scaffold/README/wechatqr.png"  width="200">
-	<p align="center">
-		<em>Itroad</em>
-	</p>
-</p>
