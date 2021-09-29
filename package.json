@@ -25,7 +25,7 @@
     "fork-ts-checker-webpack-plugin": "^0.2.8",
     "fs-extra": "3.0.1",
     "html-webpack-plugin": "2.29.0",
-    "i": "^0.3.6",
+    "i": "^0.3.7",
     "identity-obj-proxy": "^3.0.0",
     "intl": "1.2.5",
     "jest": "20.0.4",
